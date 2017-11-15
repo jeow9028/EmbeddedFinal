@@ -1,7 +1,7 @@
 # FIXED
 
 main.obj: ../main.c
-main.obj: C:/Users/Brandon/workspace_v7/LCD/LcdDriver/lcdconfig.h
+main.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/LcdDriver/lcdconfig.h
 main.obj: C:/ti/ccsv7/ccs_base/arm/include/msp.h
 main.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h
 main.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h
@@ -13,7 +13,7 @@ main.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h
 main.obj: C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h
 
 ../main.c: 
-C:/Users/Brandon/workspace_v7/LCD/LcdDriver/lcdconfig.h: 
+C:/Users/Brandon/workspace_v7/EmbeddedFinal/LcdDriver/lcdconfig.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h: 
