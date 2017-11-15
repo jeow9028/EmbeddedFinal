@@ -11,6 +11,6 @@
 	<rts value="libc.a"/>
 	<createSlaveProjects value=""/>
 	<templateProperties value="id=BOOSTXL-EDUMKII_Temperature_MSP432P401R.projectspec.BOOSTXL-EDUMKII_Temperature_MSP432P401R,"/>
-	<origin value="C:\Users\Brandon\Downloads\MSP-EXP432P401R_Software_Examples_windows\Firmware\Source\BOOSTXL-EDUMKII_Temperature_MSP432P401R\CCS\BOOSTXL-EDUMKII_Temperature_MSP432P401R.projectspec"/>
+	<origin value="C:/Users/Brandon/workspace_v7/EmbeddedFinal1"/>
 	<filesToOpen value="main.c,"/>
 </projectOptions>

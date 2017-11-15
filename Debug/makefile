@@ -165,33 +165,33 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-Robot_Joystick_Movement.out \
+EmbeddedFinal.out \
 
 EXE_OUTPUTS__QUOTED += \
-"Robot_Joystick_Movement.out" \
+"EmbeddedFinal.out" \
 
 BIN_OUTPUTS += \
-Robot_Joystick_Movement.hex \
+EmbeddedFinal.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"Robot_Joystick_Movement.hex" \
+"EmbeddedFinal.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "Robot_Joystick_Movement.out" secondary-outputs
+	@$(MAKE) --no-print-directory -Onone "EmbeddedFinal.out" secondary-outputs
 
 # Tool invocations
-Robot_Joystick_Movement.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+EmbeddedFinal.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP432 Linker'
-	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --advice:power=all --define=__MSP432P401R__ --define=ccs -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Robot_Joystick_Movement.map" --heap_size=1024 --stack_size=512 -i"C:/ti/ccsv7/ccs_base/arm/include" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Robot_Joystick_Movement_linkInfo.xml" --rom_model -o "Robot_Joystick_Movement.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --advice:power=all --define=__MSP432P401R__ --define=ccs -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"EmbeddedFinal.map" --heap_size=1024 --stack_size=512 -i"C:/ti/ccsv7/ccs_base/arm/include" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EmbeddedFinal_linkInfo.xml" --rom_model -o "EmbeddedFinal.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-Robot_Joystick_Movement.hex: $(EXE_OUTPUTS)
+EmbeddedFinal.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: MSP432 Hex Utility'
-	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armhex" --memwidth=8 --romwidth=8 -o "Robot_Joystick_Movement.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armhex" --memwidth=8 --romwidth=8 -o "EmbeddedFinal.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 
