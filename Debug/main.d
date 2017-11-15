@@ -11,6 +11,13 @@ main.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r_classic.h
 main.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h
 main.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h
 main.obj: C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h
+main.obj: ../adc.h
+main.obj: ../joystick.h
+main.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/math.h
+main.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/linkage.h
+main.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/_defs.h
+main.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h
+main.obj: ../port.h
 
 ../main.c: 
 C:/Users/Brandon/workspace_v7/EmbeddedFinal/LcdDriver/lcdconfig.h: 
@@ -23,3 +30,10 @@ C:/ti/ccsv7/ccs_base/arm/include/msp432p401r_classic.h:
 C:/ti/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h: 
 C:/ti/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h: 
 C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h: 
+../adc.h: 
+../joystick.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/math.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/linkage.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/_defs.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h: 
+../port.h: 
