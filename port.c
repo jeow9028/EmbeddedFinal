@@ -9,6 +9,6 @@
 
 void GPIO_Configure()
 {
-    P1->SEL0 |= BIT6;
+   // P1->SEL0 |= BIT6;
 
 }

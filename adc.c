@@ -1,13 +1,16 @@
 /*
  * adc.c
  *
- *  Created on: 11/15/17
- *      Author: Brandon Lewien
+ *  Created on: Oct 16, 2017
+ *      Author: Sam
  */
 
 #include "adc.h"
 #include "msp.h"
 
+#define PART4
+
+#ifdef PART4
 
 volatile uint16_t _nadc[32];
 volatile uint8_t _eos;          // channel to end the sequence on
@@ -132,3 +135,4 @@ double ADC_getMV(uint8_t channel) {
     return ((double)ADC_getN(channel))*(((double)vref)/(1<<14));
 }
 
+#endif
