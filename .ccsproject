@@ -7,10 +7,10 @@
 	<deviceEndianness value="little"/>
 	<codegenToolVersion value="16.9.4.LTS"/>
 	<isElfFormat value="true"/>
+	<connection value="common/targetdb/connections/TIXDS110_Connection.xml"/>
 	<linkerCommandFile value="msp432p401r.cmd"/>
 	<rts value="libc.a"/>
 	<createSlaveProjects value=""/>
-	<templateProperties value="id=BOOSTXL-EDUMKII_Temperature_MSP432P401R.projectspec.BOOSTXL-EDUMKII_Temperature_MSP432P401R,"/>
-	<origin value="C:\Users\Brandon\Downloads\MSP-EXP432P401R_Software_Examples_windows\Firmware\Source\BOOSTXL-EDUMKII_Temperature_MSP432P401R\CCS\BOOSTXL-EDUMKII_Temperature_MSP432P401R.projectspec"/>
+	<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate_msp432,"/>
 	<filesToOpen value="main.c,"/>
 </projectOptions>

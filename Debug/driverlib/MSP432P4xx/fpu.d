@@ -1,7 +1,7 @@
 # FIXED
 
 driverlib/MSP432P4xx/fpu.obj: ../driverlib/MSP432P4xx/fpu.c
-driverlib/MSP432P4xx/fpu.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/driverlib/MSP432P4xx/fpu.h
+driverlib/MSP432P4xx/fpu.obj: C:/Users/Brandon/workspace_v7/lab4/driverlib/MSP432P4xx/fpu.h
 driverlib/MSP432P4xx/fpu.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h
 driverlib/MSP432P4xx/fpu.obj: C:/ti/ccsv7/ccs_base/arm/include/msp.h
 driverlib/MSP432P4xx/fpu.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h
@@ -13,7 +13,7 @@ driverlib/MSP432P4xx/fpu.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compi
 driverlib/MSP432P4xx/fpu.obj: C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h
 
 ../driverlib/MSP432P4xx/fpu.c: 
-C:/Users/Brandon/workspace_v7/EmbeddedFinal/driverlib/MSP432P4xx/fpu.h: 
+C:/Users/Brandon/workspace_v7/lab4/driverlib/MSP432P4xx/fpu.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h: 

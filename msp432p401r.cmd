@@ -1,6 +1,6 @@
 /******************************************************************************
 *
-* Copyright (C) 2012 - 2016 Texas Instruments Incorporated - http://www.ti.com/
+* Copyright (C) 2012 - 2017 Texas Instruments Incorporated - http://www.ti.com/
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -32,7 +32,7 @@
 *
 * Default linker command file for Texas Instruments MSP432P401R
 *
-* File creation date: 2016-01-26
+* File creation date: 08/03/17
 *
 *****************************************************************************/
 
@@ -84,7 +84,15 @@ SECTIONS
     .init_array   :     > MAIN
     .binit        : {}  > MAIN
 
+    /* The following sections show the usage of the INFO flash memory        */
+    /* INFO flash memory is intended to be used for the following            */
+    /* device specific purposes:                                             */
+    /* Flash mailbox for device security operations                          */
     .flashMailbox : > 0x00200000
+    /* TLV table for device identification and characterization              */
+    .tlvTable     : > 0x00201000
+    /* BSL area for device bootstrap loader                                  */
+    .bslArea      : > 0x00202000
 
     .vtable :   > 0x20000000
     .data   :   > SRAM_DATA
