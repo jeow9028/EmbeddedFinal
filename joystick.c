@@ -12,8 +12,6 @@ void GPIO_configure(void){
     P4->SEL1 |= BIT4;
     P6->SEL0 |= BIT0;
     P6->SEL1 |= BIT0;
-    P4->SEL0 |= BIT6;
-    P4->SEL1 |= BIT6;
 }
 
 uint8_t joysticklocation(uint8_t channelx, uint8_t channely){

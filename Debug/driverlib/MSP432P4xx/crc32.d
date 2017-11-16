@@ -11,8 +11,8 @@ driverlib/MSP432P4xx/crc32.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r_cla
 driverlib/MSP432P4xx/crc32.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h
 driverlib/MSP432P4xx/crc32.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h
 driverlib/MSP432P4xx/crc32.obj: C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h
-driverlib/MSP432P4xx/crc32.obj: C:/Users/Brandon/workspace_v7/lab4/driverlib/MSP432P4xx/debug.h
-driverlib/MSP432P4xx/crc32.obj: C:/Users/Brandon/workspace_v7/lab4/driverlib/MSP432P4xx/hw_memmap.h
+driverlib/MSP432P4xx/crc32.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/driverlib/MSP432P4xx/debug.h
+driverlib/MSP432P4xx/crc32.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/driverlib/MSP432P4xx/hw_memmap.h
 
 ../driverlib/MSP432P4xx/crc32.c: 
 ../driverlib/MSP432P4xx/crc32.h: 
@@ -25,5 +25,5 @@ C:/ti/ccsv7/ccs_base/arm/include/msp432p401r_classic.h:
 C:/ti/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h: 
 C:/ti/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h: 
 C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h: 
-C:/Users/Brandon/workspace_v7/lab4/driverlib/MSP432P4xx/debug.h: 
-C:/Users/Brandon/workspace_v7/lab4/driverlib/MSP432P4xx/hw_memmap.h: 
+C:/Users/Brandon/workspace_v7/EmbeddedFinal/driverlib/MSP432P4xx/debug.h: 
+C:/Users/Brandon/workspace_v7/EmbeddedFinal/driverlib/MSP432P4xx/hw_memmap.h: 
