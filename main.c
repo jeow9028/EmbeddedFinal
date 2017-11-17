@@ -4,6 +4,7 @@
 #include "lcdconfig.h"
 #include "joystick.h"
 #include "stdio.h"
+#include "timer.h"
 
 #define SCB_SCR_ENABLE_SLEEPONEXIT (0x00000002)
 volatile uint16_t value;
@@ -48,7 +49,7 @@ void main(void)
     SCB->SCR &= ~SCB_SCR_ENABLE_SLEEPONEXIT;
     ADC_start();
     while(1){
-        uint8_t text[128];
+        char text[128];
         //*************
 
         //*************
