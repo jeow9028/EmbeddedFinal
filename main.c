@@ -17,7 +17,6 @@ void main(void)
     lcdconfig();
     ADC_addChannel(0,15,0);
     ADC_addChannel(4,9,0);
-    ADC_addChannel(7,7,0);
     ADC_EOS(15);
     __enable_irq();
     SCB->SCR &= ~SCB_SCR_ENABLE_SLEEPONEXIT;
