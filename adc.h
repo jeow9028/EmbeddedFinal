@@ -1,9 +1,3 @@
-/*
- * adc.h
- *
- *  Created on: Oct 16, 2017
- *      Author: Sam
- */
 #include "msp.h"
 #include <stdint.h>
 
