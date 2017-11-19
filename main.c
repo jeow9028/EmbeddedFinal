@@ -20,11 +20,15 @@ volatile uint16_t value1;
 void brandonjc(void)
 {
     lcdconfig(); // Configure LCD
-    GPIO_configure(); // Configure Joystick P1 stuff
+    joystick_configure(); // Configure Joystick P1 stuff
     ADC_init(); // Analog to digital configuration
     ADC_addChannel(0,15,0); //MEM0 x dir
     ADC_addChannel(4,9,0); //MEM4 y dir
     ADC_EOS(15); // enable EOS
+    timerA0_config();
+    gpio_pwmconfig();
+    timerA0_set(0,1000,1);
+    timerA0_enable();
 }
 
 /*
@@ -41,6 +45,7 @@ void adamarash(void)
 
 void main(void)
 {
+
     // Put code between lines     //*************
     WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;        // stop watchdog timer
     brandonjc();
@@ -48,14 +53,14 @@ void main(void)
     __enable_irq();
     SCB->SCR &= ~SCB_SCR_ENABLE_SLEEPONEXIT;
     ADC_start();
+    gpio_config();
     while(1){
+        P1->OUT &= ~BIT6;
         char text[128];
-        //*************
-
-        //*************
-
         value = joysticklocation(0,4);
         sprintf(text,"   Spd: %d   ",value);
         getwordsback(text,64,64);
+
+
     }
 }

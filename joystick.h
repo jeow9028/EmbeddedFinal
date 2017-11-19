@@ -8,7 +8,7 @@
 
 extern volatile uint16_t _nadc[32];
 
-void GPIO_configure(void);
-uint8_t joysticklocation(uint8_t channelx, uint8_t channely);
+void joystick_configure(void);
+int8_t joysticklocation(uint8_t channelx, uint8_t channely);
 
 #endif /* JOYSTICK_H_ */

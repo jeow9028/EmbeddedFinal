@@ -10,6 +10,7 @@ CMD_SRCS += \
 
 C_SRCS += \
 ../adc.c \
+../gpio1.c \
 ../joystick.c \
 ../main.c \
 ../startup_msp432p401r_ccs.c \
@@ -18,6 +19,7 @@ C_SRCS += \
 
 C_DEPS += \
 ./adc.d \
+./gpio1.d \
 ./joystick.d \
 ./main.d \
 ./startup_msp432p401r_ccs.d \
@@ -26,6 +28,7 @@ C_DEPS += \
 
 OBJS += \
 ./adc.obj \
+./gpio1.obj \
 ./joystick.obj \
 ./main.obj \
 ./startup_msp432p401r_ccs.obj \
@@ -34,6 +37,7 @@ OBJS += \
 
 OBJS__QUOTED += \
 "adc.obj" \
+"gpio1.obj" \
 "joystick.obj" \
 "main.obj" \
 "startup_msp432p401r_ccs.obj" \
@@ -42,6 +46,7 @@ OBJS__QUOTED += \
 
 C_DEPS__QUOTED += \
 "adc.d" \
+"gpio1.d" \
 "joystick.d" \
 "main.d" \
 "startup_msp432p401r_ccs.d" \
@@ -50,6 +55,7 @@ C_DEPS__QUOTED += \
 
 C_SRCS__QUOTED += \
 "../adc.c" \
+"../gpio1.c" \
 "../joystick.c" \
 "../main.c" \
 "../startup_msp432p401r_ccs.c" \
