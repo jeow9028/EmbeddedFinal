@@ -8,7 +8,6 @@
 
 #define SCB_SCR_ENABLE_SLEEPONEXIT (0x00000002)
 volatile uint16_t value;
-volatile uint16_t value1;
 
 
 /*
@@ -27,7 +26,7 @@ void brandonjc(void)
     ADC_EOS(15); // enable EOS
     timerA0_config();
     gpio_pwmconfig();
-    timerA0_set(0,1000,1);
+    //timerA0_set(0,1000,1);
     timerA0_enable();
 }
 

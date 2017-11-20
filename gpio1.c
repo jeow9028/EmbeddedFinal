@@ -22,7 +22,7 @@ void gpio_pwmconfig(){
     P1->IES |= BIT6;                     // P1.6 Hi/lo edge
     P1->IFG &= ~BIT6;                  // P1.6 IFG cleared
 }
-
+/*
 void gpio_LEDconfig() {
     P2->SEL0&=~BIT6&~BIT4;
     P2->SEL1&=~BIT6&~BIT4;
@@ -48,7 +48,7 @@ void gpio_LEDout(uint8_t R, uint8_t G, uint8_t B) {
 void gpio_registerInterrupt(uint8_t portNumber, uint8_t pin, intHandler function) {
     interruptHandlers[portNumber][pin]=function;
 }
-
+*/
 void joystickcall(void){
     uint16_t value = joysticklocation(0,4);
     if(value == 3){
