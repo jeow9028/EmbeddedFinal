@@ -17,7 +17,7 @@ void timerA0_config(){
             TIMER_A_CTL_ID_3 |
             TIMER_A_CTL_MC__UP |
             TIMER_A_CTL_IE;       // SMCLK, Up mode, enable CTL interrupts
-    TIMER_A0->CCR[0] = 37792;                 // Value to count to
+    TIMER_A0->CCR[0] = 100;                 // Value to count to
     TIMER_A0->CCTL[0] = TIMER_A_CCTLN_CCIE; //Enable CCTL interrupts
 
     // Enable Interrupts in the NVIC
@@ -62,7 +62,9 @@ void TA0_0_IRQHandler()
     if((TIMER_A0->CCTL[0] & TIMER_A_CCTLN_CCIFG) == TIMER_A_CCTLN_CCIFG)
     {
         tCount++;
+        P1->OUT |= BIT6;
         TIMER_A0->CCTL[0] &= ~(TIMER_A_CCTLN_CCIFG);
+        P1->OUT &= ~BIT6;
     }
 }
 

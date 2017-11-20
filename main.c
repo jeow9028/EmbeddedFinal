@@ -26,8 +26,7 @@ void brandonjc(void)
     ADC_EOS(15); // enable EOS
     timerA0_config();
     gpio_pwmconfig();
-    //timerA0_set(0,1000,1);
-    timerA0_enable();
+
 }
 
 /*
@@ -54,7 +53,6 @@ void main(void)
     ADC_start();
     gpio_config();
     while(1){
-        P1->OUT &= ~BIT6;
         char text[128];
         value = joysticklocation(0,4);
         sprintf(text,"   Spd: %d   ",value);

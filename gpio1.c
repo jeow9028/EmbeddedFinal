@@ -52,6 +52,8 @@ void gpio_registerInterrupt(uint8_t portNumber, uint8_t pin, intHandler function
 void joystickcall(void){
     uint16_t value = joysticklocation(0,4);
     if(value == 3){
+        timerA0_enable();
+        timerA0_disable();
         //turn both motors a certain pwm
     }
     if(value == 2){
