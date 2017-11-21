@@ -24,6 +24,7 @@ int8_t joysticklocation(uint8_t channelx, uint8_t channely){
     int8_t location = 0;
     if ((ADC_getN(channelx) < 12000) && (ADC_getN(channely) > 12000) && (ADC_getN(channelx) > 6000)){
         //This for for straight up
+
         location = 3;
         return location;
     }
