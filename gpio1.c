@@ -21,6 +21,13 @@ void gpio_pwmconfig(){
     P1->IE |= BIT6;                       // P1.6 interrupt enabled
     P1->IES |= BIT6;                     // P1.6 Hi/lo edge
     P1->IFG &= ~BIT6;                  // P1.6 IFG cleared
+
+    P1->DIR |= BIT5;
+    P1->REN |= BIT5;
+    P1->OUT |= BIT5;
+    P1->IE |= BIT5;
+    P1->IES |= BIT5;
+    P1->IFG &= ~BIT5;
 }
 /*
 void gpio_LEDconfig() {
