@@ -16,6 +16,8 @@ joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/linkage.h
 joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/_defs.h
 joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h
 joystick.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/adc.h
+joystick.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/timer.h
+joystick.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/gpio1.h
 
 ../joystick.c: 
 ../adc.h: 
@@ -33,3 +35,5 @@ C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/linkage.h:
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/_defs.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h: 
 C:/Users/Brandon/workspace_v7/EmbeddedFinal/adc.h: 
+C:/Users/Brandon/workspace_v7/EmbeddedFinal/timer.h: 
+C:/Users/Brandon/workspace_v7/EmbeddedFinal/gpio1.h: 

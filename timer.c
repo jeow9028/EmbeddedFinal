@@ -14,14 +14,13 @@ void timerA0_config(){
 #ifdef TEST2
     TIMER_A0->R = 0;                          // Reset count
     TIMER_A0->CTL = TIMER_A_CTL_TASSEL_2 |
-            TIMER_A_CTL_ID_3 |
-            TIMER_A_CTL_MC__UP |
-            TIMER_A_CTL_IE;       // SMCLK, Up mode, enable CTL interrupts
-    TIMER_A0->CCR[0] = 100;                 // Value to count to
+                    TIMER_A_CTL_ID_3 |
+                    TIMER_A_CTL_IE |
+                    TIMER_A_CTL_MC__UP| // SMCLK, enable CTL interrupts
+                    TIMER_A_CTL_IFG;
+    TIMER_A0->CCR[0] = 200;                 // Value to count to
     TIMER_A0->CCTL[0] = TIMER_A_CCTLN_CCIE; //Enable CCTL interrupts
-
     // Enable Interrupts in the NVIC
-    __NVIC_SetPriority(TA0_0_IRQn, 7);
       NVIC_EnableIRQ(TA0_0_IRQn);
 #endif
 #ifdef TEST1
@@ -61,10 +60,17 @@ void TA0_0_IRQHandler()
     */
     if((TIMER_A0->CCTL[0] & TIMER_A_CCTLN_CCIFG) == TIMER_A_CCTLN_CCIFG)
     {
+        int i =0;
         tCount++;
         P1->OUT |= BIT6;
+
+
+        if (tCount == 100){
+            P1->OUT &= ~BIT6;
+            for(i = 0;i <100000;i++);
+            tCount = 0;
+        }
         TIMER_A0->CCTL[0] &= ~(TIMER_A_CCTLN_CCIFG);
-        P1->OUT &= ~BIT6;
     }
 }
 

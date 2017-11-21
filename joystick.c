@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <adc.h>
+#include <timer.h>
 /*
  * Bitmapping is in overview for ADC14
  */
