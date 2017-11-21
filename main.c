@@ -33,7 +33,7 @@ void brandonjc(void){
 #endif
 #ifdef TIMER
     timerA0_config();
-    //timerA1_config();
+    timerA1_config();
     gpio_pwmconfig();
     gpio_config();
 #endif

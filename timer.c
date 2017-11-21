@@ -20,6 +20,7 @@ void timerA1_config(){
     // Enable Interrupts in the NVIC
     NVIC_EnableIRQ(TA1_0_IRQn);
 }
+
 void timerA0_config(){
     TIMER_A0->R = 0;                          // Reset count
     TIMER_A0->CTL = TIMER_A_CTL_TASSEL_2 |
@@ -27,48 +28,31 @@ void timerA0_config(){
                     TIMER_A_CTL_IE |
                     TIMER_A_CTL_MC__UP| // SMCLK, enable CTL interrupts
                     TIMER_A_CTL_IFG;
-    TIMER_A0->CCR[0] = 20;                 // Value to count to
+    TIMER_A0->CCR[0] = 100;                 // Value to count to
     TIMER_A0->CCTL[0] = TIMER_A_CCTLN_CCIE; //Enable CCTL interrupts
     // Enable Interrupts in the NVIC
-      NVIC_EnableIRQ(TA0_0_IRQn);
-#ifdef TEST1
-    TIMER_A0->R   = 0;         // Reset count
-    TIMER_A0->CTL = TIMER_A_CTL_MC__UP | TIMER_A_CTL_SSEL__SMCLK | TIMER_A_CTL_ID__8 | TIMER_A_CTL_IE;       // SMCLK, Up mode
     NVIC_EnableIRQ(TA0_0_IRQn);
 }
 
-void timerA0_set(uint8_t i, uint32_t count, intHandler fn) {
-    TIMER_A0->CCR[i]  = count;    // Value to count to
-    TIMER_A0->CCTL[i] = TIMER_A_CCTLN_CCIE &~TIMER_A_CCTLN_CCIFG;   // TACCR0 interrupt enabled
-    //interruptHandlers[i]=fn;
-    TIMER_A0->CCTL[i] = ~TIMER_A_CCTLN_CAP; //capture
-#endif
-}
-
 void TA1_0_IRQHandler(){
-    {
-        int i =0;
-        tCount++;
-        P1->OUT |= BIT5;
-
-
-        if (tCount == 100){
+    if((TIMER_A1->CCTL[0] & TIMER_A_CCTLN_CCIFG) == TIMER_A_CCTLN_CCIFG){
+        if (P1->OUT & BIT5){
             P1->OUT &= ~BIT5;
-            for(i = 0;i <20000;i++);
-            tCount = 0;
         }
-        TIMER_A1->CCTL[0] &= ~(TIMER_A_CCTLN_CCIFG);
+        else{
+            P1->OUT |= BIT5;
+        }
+        TIMER_A1->CCTL[0] &= ~(TIMER_A_CCTLN_CCIFG); //reset flag
     }
 }
+
 void TA0_0_IRQHandler(){
     if((TIMER_A0->CCTL[0] & TIMER_A_CCTLN_CCIFG) == TIMER_A_CCTLN_CCIFG){
-        int i =0;
-        tCount++;//counter
-        P1->OUT |= BIT6;//turn p1.6 to high
-        if (tCount == 100){
+        if (P1->OUT & BIT6){
             P1->OUT &= ~BIT6;
-            for(i = 0;i <100;i++);
-            tCount = 0;
+        }
+        else{
+            P1->OUT |= BIT6;
         }
         TIMER_A0->CCTL[0] &= ~(TIMER_A_CCTLN_CCIFG); //reset flag
     }
