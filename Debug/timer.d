@@ -1,7 +1,7 @@
 # FIXED
 
 timer.obj: ../timer.c
-timer.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/gpio1.h
+timer.obj: C:/Users/Jean-Christophe/workspace_v7/EmbeddedFinal/gpio1.h
 timer.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h
 timer.obj: C:/ti/ccsv7/ccs_base/arm/include/msp.h
 timer.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h
@@ -14,7 +14,7 @@ timer.obj: C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h
 timer.obj: ../timer.h
 
 ../timer.c: 
-C:/Users/Brandon/workspace_v7/EmbeddedFinal/gpio1.h: 
+C:/Users/Jean-Christophe/workspace_v7/EmbeddedFinal/gpio1.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h: 
