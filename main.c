@@ -6,6 +6,7 @@
 #include "stdio.h"
 #include "timer.h"
 
+
 //change
 #define TIMER
 //#define LCD
@@ -13,6 +14,7 @@
 
 #define SCB_SCR_ENABLE_SLEEPONEXIT (0x00000002)
 volatile uint16_t value;
+volatile uint16_t test;
 
 /*
  * Function: Joystick, ADC, Timer/PWM Configuration w/out Bluetooth
@@ -60,9 +62,11 @@ void main(void){
 #endif
     while(1){
         value = joysticklocation(0,4);
-
-
         pwm(value);
+        test = Testfrequency(100);
+        pwm (test);
+
+
 #ifdef LCD
         char text[128];
         value = joysticklocation(0,4);

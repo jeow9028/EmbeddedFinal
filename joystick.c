@@ -5,6 +5,9 @@
 #include <stdint.h>
 #include <adc.h>
 #include <timer.h>
+
+volatile uint16_t speed;
+volatile uint16_t timefreq;
 /*
  * Bitmapping is in overview for ADC14
  */
@@ -63,4 +66,42 @@ void pwm(uint8_t inputvalue){
         TIMER_A1->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
         TIMER_A0->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
     }
+}
+
+/*
+ * This function changes the freqency of pwm values so it can alter speeds
+ * Speed of Joystick from the input value
+ * Speed 1
+ *      timer 100
+ * Speed 2
+ *      timer 100/2
+ * Speed 3
+ *      timer 100 /4
+ */
+void Testfrequency(uint16_t speed){
+    if (speed == 100){
+        //output the timer flag for this
+
+        TIMER_A1->CCTL[0] |= TIMER_A_CCTLN_CCIE;
+        TIMER_A0->CCTL[0] |= TIMER_A_CCTLN_CCIE;
+        timefreq = speed;
+        //sprintf ("Speed %d "speed)
+
+    }
+    if (speed == 50){
+        //Output the timer for speed
+        TIMER_A1->CCTL[0] |= TIMER_A_CCTLN_CCIE;
+        TIMER_A0->CCTL[0] |= TIMER_A_CCTLN_CCIE;
+        //sprintf ("Speed %d "speed)
+        timefreq = speed/2;
+
+    }
+    if (speed == 25){
+        //Output the timer for speed
+        TIMER_A1->CCTL[0] |= TIMER_A_CCTLN_CCIE;
+        TIMER_A0->CCTL[0] |= TIMER_A_CCTLN_CCIE;
+        //sprintf ("Speed %d "speed)
+        timefreq = speed/4;
+    }
+
 }
