@@ -28,7 +28,7 @@ void timerA0_config(){
                     TIMER_A_CTL_IE |
                     TIMER_A_CTL_MC__UP| // SMCLK, enable CTL interrupts
                     TIMER_A_CTL_IFG;
-    TIMER_A0->CCR[0] = 100;                 // Value to count to
+    TIMER_A0->CCR[0] = 400;                 // Value to count to
     TIMER_A0->CCTL[0] = TIMER_A_CCTLN_CCIE; //Enable CCTL interrupts
     // Enable Interrupts in the NVIC
     NVIC_EnableIRQ(TA0_0_IRQn);
@@ -58,4 +58,11 @@ void TA0_0_IRQHandler(){
     }
 }
 
+
+/*
+ * This is the second timer for the second motor in conjunction of the 1st timer
+ * Using the P1.5 as the port for Motor 2
+ * 2nd PWM interrupt for the pin
+ *
+ */
 

@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.4                     
 ******************************************************************************
->> Linked Tue Nov 21 14:54:01 2017
+>> Linked Tue Nov 21 16:49:08 2017
 
 OUTPUT FILE NAME:   <EmbeddedFinal.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 00000d91
@@ -213,11 +213,11 @@ UNDEFED   SHT$$INIT_ARRAY$$Limit
 00000f5b  T32_INT1_IRQHandler            
 00000f5b  T32_INT2_IRQHandler            
 00000f5b  T32_INTC_IRQHandler            
-0000096d  TA0_0_IRQHandler               
-0000096d  TA0_0_IRQHandler               
+0000096f  TA0_0_IRQHandler               
+0000096f  TA0_0_IRQHandler               
 00000f5b  TA0_N_IRQHandler               
-0000093b  TA1_0_IRQHandler               
-0000093b  TA1_0_IRQHandler               
+0000093d  TA1_0_IRQHandler               
+0000093d  TA1_0_IRQHandler               
 00000f5b  TA1_N_IRQHandler               
 00000f5b  TA2_0_IRQHandler               
 00000f5b  TA2_N_IRQHandler               
@@ -317,10 +317,10 @@ address   name
 000008c3  __mpu_init                     
 000008f1  timerA1_config                 
 00000915  timerA0_config                 
-0000093b  TA1_0_IRQHandler               
-0000093b  TA1_0_IRQHandler               
-0000096d  TA0_0_IRQHandler               
-0000096d  TA0_0_IRQHandler               
+0000093d  TA1_0_IRQHandler               
+0000093d  TA1_0_IRQHandler               
+0000096f  TA0_0_IRQHandler               
+0000096f  TA0_0_IRQHandler               
 000009c5  __aeabi_dmul                   
 00000ac1  joystick_configure             
 00000aeb  joysticklocation               
