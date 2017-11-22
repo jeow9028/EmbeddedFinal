@@ -6,7 +6,7 @@
 #include "stdio.h"
 #include "timer.h"
 
-
+//change
 #define TIMER
 //#define LCD
 #define ADCJOYSTICK
