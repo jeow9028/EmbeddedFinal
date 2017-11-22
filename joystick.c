@@ -41,3 +41,18 @@ int8_t joysticklocation(uint8_t channelx, uint8_t channely){
         return 0;
     }
 }
+
+void pwm(uint8_t inputvalue{
+    if(inputvalue == 3){
+        //UP PWM
+        for ()
+    }
+    else if (inputvalue == 1){
+        // Left
+        //interrupts
+    }
+    else if (inputvalue == 2){
+        //turn right
+        // interrupts
+    }
+})

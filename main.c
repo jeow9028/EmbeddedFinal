@@ -62,6 +62,7 @@ void main(void){
 #ifdef LCD
         char text[128];
         value = joysticklocation(0,4);
+        pwm(value);
         sprintf(text,"   Spd: %d   ",value);
         getwordsback(text,64,64);
 #endif
