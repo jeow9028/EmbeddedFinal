@@ -2,11 +2,8 @@
 #include "msp.h"
 #include "timer.h"
 
-//#define TEST1
 volatile uint16_t tCount; //keep track of timer interrupts
 volatile uint16_t counter;
-
-intHandler interruptHandlers[5];
 
 void timerA1_config(){
     TIMER_A1->R = 0;                          // Reset count
@@ -16,7 +13,7 @@ void timerA1_config(){
                     TIMER_A_CTL_MC__UP| // SMCLK, enable CTL interrupts
                     TIMER_A_CTL_IFG;
     TIMER_A1->CCR[0] = 200;                 // Value to count to
-    TIMER_A1->CCTL[0] = TIMER_A_CCTLN_CCIE; //Enable CCTL interrupts
+    //TIMER_A1->CCTL[0] = TIMER_A_CCTLN_CCIE; //Enable CCTL interrupts
     // Enable Interrupts in the NVIC
     NVIC_EnableIRQ(TA1_0_IRQn);
 }
@@ -29,7 +26,7 @@ void timerA0_config(){
                     TIMER_A_CTL_MC__UP| // SMCLK, enable CTL interrupts
                     TIMER_A_CTL_IFG;
     TIMER_A0->CCR[0] = 400;                 // Value to count to
-    TIMER_A0->CCTL[0] = TIMER_A_CCTLN_CCIE; //Enable CCTL interrupts
+    //TIMER_A0->CCTL[0] = TIMER_A_CCTLN_CCIE; //Enable CCTL interrupts
     // Enable Interrupts in the NVIC
     NVIC_EnableIRQ(TA0_0_IRQn);
 }

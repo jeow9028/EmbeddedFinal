@@ -42,17 +42,25 @@ int8_t joysticklocation(uint8_t channelx, uint8_t channely){
     }
 }
 
-void pwm(uint8_t inputvalue{
+void pwm(uint8_t inputvalue){
     if(inputvalue == 3){
-        //UP PWM
-        for ()
+        TIMER_A1->CCTL[0] |= TIMER_A_CCTLN_CCIE;
+        TIMER_A0->CCTL[0] |= TIMER_A_CCTLN_CCIE;
     }
     else if (inputvalue == 1){
         // Left
         //interrupts
+        TIMER_A1->CCTL[0] |= TIMER_A_CCTLN_CCIE;
+        TIMER_A0->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
     }
     else if (inputvalue == 2){
         //turn right
         // interrupts
+        TIMER_A0->CCTL[0] |= TIMER_A_CCTLN_CCIE;
+        TIMER_A1->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
     }
-})
+    else{
+        TIMER_A1->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
+        TIMER_A0->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
+    }
+}

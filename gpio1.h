@@ -1,10 +1,3 @@
-/*
- * gpio.h
- *
- *  Created on: Oct 25, 2017
- *      Author: Sam
- */
-
 #ifndef GPIO1_H_
 #define GPIO1_H_
 

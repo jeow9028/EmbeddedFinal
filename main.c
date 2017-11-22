@@ -9,7 +9,7 @@
 
 #define TIMER
 //#define LCD
-//#define ADCJOYSTICK
+#define ADCJOYSTICK
 
 #define SCB_SCR_ENABLE_SLEEPONEXIT (0x00000002)
 volatile uint16_t value;
@@ -59,6 +59,10 @@ void main(void){
     ADC_start();
 #endif
     while(1){
+        value = joysticklocation(0,4);
+
+
+        pwm(value);
 #ifdef LCD
         char text[128];
         value = joysticklocation(0,4);
