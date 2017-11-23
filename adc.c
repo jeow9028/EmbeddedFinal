@@ -1,24 +1,36 @@
+/******************************************************************************
+ * @Title: adc.c
+ *
+ * @author Brandon Lewien & Sam Zimmer
+ * @date November 3rd, 2017
+ * @version 1.1--11/23/17BL
+ *
+ * Compiled using CCSv7
+ *
+ * Description:
+ * This file contains functions to configure the analog to digital converter
+ * (ADC) on the MSP432P401r, sample and convert data to digital values, and
+ * calculate the voltage on an analog channel.
+ *
+ * !Note: A detailed explanation of each function is in the adc header file.
+ *
+ * _____________________________WARNING_____________________________
+ * ---------------DO NOT CHANGE ANYTHING IN THIS FILE---------------
+ * -----------------------------------------------------------------
+ * ***************************************************************************/
+
 #include "adc.h"
 #include "msp.h"
-
 
 volatile uint16_t _nadc[32];
 volatile uint8_t _eos;          // channel to end the sequence on
 
-
-/*
- * Function: ADC_init
- * ----------------------------
- *   Initializes the ADC and reference generator (1.2v)
- *
- *   returns: void
- */
 void ADC_init(){
     while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);            //If ref generator busy, wait
     REF_A->CTL0  = REF_A_CTL0_VSEL_0 | REF_A_CTL0_ON;   //Enable internal 1.2V ref
 
     ADC14->CTL0 |= ADC14_CTL0_SHT0_5        // ADC14 sample-and-hold time: 96 cycle sample time
-                | ADC14_CTL0_SHT1_5          // ADC14 sample-and-hold time: 96 cycle sample time
+                | ADC14_CTL0_SHT1_5         // ADC14 sample-and-hold time: 96 cycle sample time
                 | ADC14_CTL0_SHP            // SAMPCON signal is sourced from the sampling timer
                 | ADC14_CTL0_MSC            // Sample/conversions are performed automatically as soon as the prior conversion is completed
                 | ADC14_CTL0_CONSEQ_3       // Repeat-sequence-of-channels
@@ -32,11 +44,6 @@ void ADC_init(){
     NVIC_EnableIRQ(ADC14_IRQn);     //Enable ADC int in NVIC module
 }
 
-/*
- * Function: ADC14_IRQHandler
- * ----------------------------
- *   IRQ Handler for when ADC has finished conversion
- */
 void ADC14_IRQHandler() {
     int i;
     for(i=0;i<=_eos;i++) {
@@ -46,45 +53,15 @@ void ADC14_IRQHandler() {
     }
 }
 
-
-/*
- * Function: ADC_EOS
- * ----------------------------
- *   Sets the EOS for continuous sequence mode
- *
- *   channel: the EOS channel you want to end sampling on
- *
- *   returns: void
- */
 void ADC_EOS(uint8_t channel) {
     ADC14->MCTL[channel]|=ADC14_MCTLN_EOS;
     _eos=channel;
 }
 
-
-/*
- * Function: ADC_start
- * ----------------------------
- *   Starts ADC sampling and converion. This needs to be called once if ADC14_CTL0_MSC and ADC14_CTL0_SHP are set
- *
- *   returns: void
- */
 void ADC_start() {
     ADC14->CTL0 |= ADC14_CTL0_SC;   // Start conversions
 }
 
-
-/*
- * Function: ADC_addChannel
- * ----------------------------
- *   Sets the EOS for continuous sequence mode
- *
- *   channel: the MCTL number 0-32
- *   map: A0-A31 that you want mapped to MEM[channel]
- *   vref: 0=AVCC/AVSS - 1=VREF
- *
- *   returns: void
- */
 void ADC_addChannel(uint8_t channel, uint8_t map, uint8_t vref) {
     if(channel>31) return;
     if(vref!=0&&vref!=1) return;
@@ -94,31 +71,11 @@ void ADC_addChannel(uint8_t channel, uint8_t map, uint8_t vref) {
     ADC14->CTL0 |= ADC14_CTL0_ENC;          // Enable Conversions
 }
 
-
-/*
- * Function: ADC_getN
- * ----------------------------
- *   Fetches the NADC value for the specified channel
- *
- *   channel: the MCTL number 0-32
- *
- *   returns: MEM[channel] stored in _nadc
- */
 uint16_t ADC_getN(uint8_t channel) {
     if(channel>31) return;
     return _nadc[channel];              // Return the stored MEM[channel] value
 }
 
-
-/*
- * Function: ADC_getMV
- * ----------------------------
- *   Converts the NADC value for the specified channel into millivolts
- *
- *   channel: the MCTL number 0-32
- *
- *   returns: millivolts
- */
 double ADC_getMV(uint8_t channel) {
     if(channel>31) return;
     int vref = 1200*((ADC14->MCTL[channel]&ADC14_MCTLN_VRSEL_1)>0)+3300*((ADC14->MCTL[channel]&ADC14_MCTLN_VRSEL_1)==0);

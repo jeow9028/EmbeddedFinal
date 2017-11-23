@@ -1,3 +1,19 @@
+/******************************************************************************
+ * @Title: joystick.c
+ *
+ * @author Brandon Lewien
+ * @date November 3rd, 2017
+ * @version 1.4--11/23/17
+ *
+ * Compiled using CCSv7
+ *
+ * Description:
+ * This file contains configuration code for the Joystick on the MKII Boosterpack.
+ *
+ * ***************************************************************************/
+
+
+
 #include "adc.h"
 #include "msp.h"
 #include <math.h>
@@ -5,11 +21,7 @@
 #include <stdint.h>
 #include <adc.h>
 #include <timer.h>
-#include <time.h>
 
-/*
- * Bitmapping is in overview for ADC14
- */
 void joystick_configure(void){
     P4->SEL0 |= BIT4;
     P4->SEL1 |= BIT4;
@@ -41,30 +53,5 @@ int8_t joysticklocation(uint8_t channelx, uint8_t channely){
     }
     else{
         return 0;
-    }
-}
-
-void pwm(uint8_t inputvalue){
-    int delay = 0;
-
-    if(inputvalue == 3){
-        TIMER_A1->CCTL[0] |= TIMER_A_CCTLN_CCIE;
-        TIMER_A0->CCTL[0] |= TIMER_A_CCTLN_CCIE;
-    }
-    else if (inputvalue == 1){
-        // Left
-        //interrupts
-        TIMER_A1->CCTL[0] |= TIMER_A_CCTLN_CCIE;
-        TIMER_A0->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
-    }
-    else if (inputvalue == 2){
-        //turn right
-        // interrupts
-        TIMER_A0->CCTL[0] |= TIMER_A_CCTLN_CCIE;
-        TIMER_A1->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
-    }
-    else{
-        TIMER_A1->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
-        TIMER_A0->CCTL[0] &= ~TIMER_A_CCTLN_CCIE;
     }
 }

@@ -13,6 +13,7 @@
 
 #define SCB_SCR_ENABLE_SLEEPONEXIT (0x00000002)
 volatile uint16_t value;
+volatile uint16_t test;
 
 /*
  * Function: Joystick, ADC, Timer/PWM Configuration w/out Bluetooth
@@ -50,7 +51,6 @@ void adamarash(void){
 }
 
 void main(void){
-    // Put code between lines     //*************
     WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;        // stop watchdog timer
     SCB->SCR &= ~SCB_SCR_ENABLE_SLEEPONEXIT;
     brandonjc();
@@ -60,14 +60,14 @@ void main(void){
     ADC_start();
 #endif
     while(1){
+#ifdef ADCJOYSTICK
         value = joysticklocation(0,4);
-
-
-        //pwm(value);
+#endif
+#ifdef TIMER
+        pwm(value);
+#endif
 #ifdef LCD
         char text[128];
-        value = joysticklocation(0,4);
-        pwm(value);
         sprintf(text,"   Spd: %d   ",value);
         getwordsback(text,64,64);
 #endif

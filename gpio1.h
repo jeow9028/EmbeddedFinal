@@ -1,3 +1,10 @@
+/*
+ * lcdconfig.h
+ *
+ *  Created on: Nov 20, 2017
+ *      Author: Brandon
+ */
+
 #ifndef GPIO1_H_
 #define GPIO1_H_
 

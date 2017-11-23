@@ -28,8 +28,8 @@ void timerA0_config(){
                     TIMER_A_CTL_MC__UP| // SMCLK, enable CTL interrupts
                     TIMER_A_CTL_IFG;
     TIMER_A0->CCTL[1] = TIMER_A_CCTLN_OUTMOD_7;
-    TIMER_A0->CCR[1] = 450;
-    TIMER_A0->CCR[0] = 512-1;                 // Value to count to
+    //TIMER_A0->CCR[1] = 450;
+    TIMER_A0->CCR[0] = 512-1;                 //Frequency
     //TIMER_A0->CCTL[0] = TIMER_A_CCTLN_CCIE; //Enable CCTL interrupts
     // Enable Interrupts in the NVIC
     //NVIC_EnableIRQ(TA0_0_IRQn);
@@ -66,4 +66,22 @@ void TA0_0_IRQHandler(){
         }
         TIMER_A0->CCTL[0] &= ~(TIMER_A_CCTLN_CCIFG); //reset flag
     }*/
+}
+
+void pwm(uint8_t inputvalue){
+    if(inputvalue == 3){
+        TIMER_A0->CCR[1] = 450;
+
+    }
+    else if (inputvalue == 1){
+        TIMER_A0->CCR[1] = 450;
+
+    }
+    else if (inputvalue == 2){
+        TIMER_A0->CCR[1] = 213;
+
+    }
+    else{
+        TIMER_A0->CCR[1] = 0;
+    }
 }

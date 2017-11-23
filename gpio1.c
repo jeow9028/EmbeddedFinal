@@ -6,8 +6,8 @@
 intHandler interruptHandlers[7][8]; //probably will remove
 
 void gpio_config() {
-    //NVIC_EnableIRQ(PORT1_IRQn);
-    NVIC_EnableIRQ(PORT2_IRQn);
+    NVIC_EnableIRQ(PORT1_IRQn);
+    //NVIC_EnableIRQ(PORT2_IRQn);
     //NVIC_EnableIRQ(PORT3_IRQn);
     //NVIC_EnableIRQ(PORT4_IRQn);
     //NVIC_EnableIRQ(PORT5_IRQn);
@@ -56,28 +56,12 @@ void gpio_registerInterrupt(uint8_t portNumber, uint8_t pin, intHandler function
     interruptHandlers[portNumber][pin]=function;
 }
 */
-void joystickcall(void){
-    uint16_t value = joysticklocation(0,4);
-    if(value == 3){
-        //turn both motors a certain pwm
-    }
-    if(value == 2){
-        //turn both motors a certain pwm
-    }
-    if(value == 1){
-        //turn both motors a certain pwm
-    }
-    if(value == 0){
-        //DO NOTHING
-    }
-}
 
 void PORT1_IRQHandler() {
     int i;
     for(i=0;i<8;i++) //if ANY port is called
     {
         if(P1->IFG&(1<<i)) {
-            joystickcall(); //above
             P1->IFG&=~(1<<i); //clear interrupt flag
         }
     }
