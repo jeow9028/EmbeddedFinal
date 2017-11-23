@@ -1,3 +1,17 @@
+/******************************************************************************
+ * @Title: main.c
+ *
+ * @authors Brandon Lewien, Jean-Christophe Owens, Arash Yousefzadeh, Adam Smrekar
+ * @date November 23rd, 2017
+ * @version - ---
+ *
+ * Compiled using CCSv7
+ *
+ * Note that LCD will mess with other pin-out configurations. It is *highly*
+ * recommended to comment-out #define LCD.
+ *
+ * ***************************************************************************/
+
 #include <stdint.h>
 #include "msp.h"
 #include "adc.h"
@@ -5,7 +19,7 @@
 #include "joystick.h"
 #include "stdio.h"
 #include "timer.h"
-
+#include "gpio1.h"
 
 #define TIMER
 //#define LCD
@@ -19,25 +33,26 @@ volatile uint16_t test;
  * Function: Joystick, ADC, Timer/PWM Configuration w/out Bluetooth
  * ----------------------------
  *   function brandonjc has all the configuration function calls
- *   for joystick to pwm
+ *   for joystick, pwm, specific gpio configurations, adc, timers,
+ *   and LCD
  */
 void brandonjc(void){
-#ifdef LCD
-    lcdconfig(); // Configure LCD
-#endif
 #ifdef ADCJOYSTICK
     joystick_configure(); // Configure Joystick P1 stuff
     ADC_init(); // Analog to digital configuration
     ADC_addChannel(0,15,0); //MEM0 x dir
     ADC_addChannel(4,9,0); //MEM4 y dir
     ADC_EOS(15); // enable EOS
+    ADC_start();
 #endif
 #ifdef TIMER
     timerA0_config();
     //timerA1_config();
-    //gpio_pwmconfig();
+    gpio_pwmconfig();
     gpio_config();
-
+#endif
+#ifdef LCD
+    lcdconfig(); // Configure LCD
 #endif
 }
 
@@ -51,14 +66,11 @@ void adamarash(void){
 }
 
 void main(void){
-    WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;        // stop watchdog timer
+    WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;     // stop watchdog timer
     SCB->SCR &= ~SCB_SCR_ENABLE_SLEEPONEXIT;
     brandonjc();
     adamarash();
     __enable_irq();
-#ifdef ADCJOYSTICK
-    ADC_start();
-#endif
     while(1){
 #ifdef ADCJOYSTICK
         value = joysticklocation(0,4);
@@ -68,7 +80,7 @@ void main(void){
 #endif
 #ifdef LCD
         char text[128];
-        sprintf(text,"   Spd: %d   ",value);
+        sprintf(text,"   Quadrant: %d   ",value);
         getwordsback(text,64,64);
 #endif
     }

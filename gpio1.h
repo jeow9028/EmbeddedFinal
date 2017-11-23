@@ -11,17 +11,8 @@
 #include <stdint.h>
 #include "msp.h"
 
-
-typedef void (*intHandler)(void);
-
 void gpio_config();
-
-void joystickcall(void);
-
 void gpio_pwmconfig();
-
-void gpio_registerInterrupt(uint8_t portNumber, uint8_t pin, intHandler function);
-
 void gpio_LEDconfig();
 void gpio_LEDout(uint8_t R, uint8_t G, uint8_t B);
 

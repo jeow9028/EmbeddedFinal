@@ -72,12 +72,16 @@ void ADC_addChannel(uint8_t channel, uint8_t map, uint8_t vref) {
 }
 
 uint16_t ADC_getN(uint8_t channel) {
-    if(channel>31) return;
+    if(channel>31){
+        return 0;
+    }
     return _nadc[channel];              // Return the stored MEM[channel] value
 }
 
 double ADC_getMV(uint8_t channel) {
-    if(channel>31) return;
+    if(channel>31){
+        return 0;
+    }
     int vref = 1200*((ADC14->MCTL[channel]&ADC14_MCTLN_VRSEL_1)>0)+3300*((ADC14->MCTL[channel]&ADC14_MCTLN_VRSEL_1)==0);
     return ((double)ADC_getN(channel))*(((double)vref)/(1<<14));
 }
