@@ -7,7 +7,7 @@
 #include <stdint.h>
 
 extern volatile uint16_t _nadc[32];
-
+void delay(uint16_t num);
 void joystick_configure(void);
 int8_t joysticklocation(uint8_t channelx, uint8_t channely);
 void pwm(uint8_t inputvalue);

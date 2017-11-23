@@ -5,6 +5,8 @@
 #include <stdint.h>
 #include <adc.h>
 #include <timer.h>
+#include <time.h>
+
 /*
  * Bitmapping is in overview for ADC14
  */
@@ -43,6 +45,8 @@ int8_t joysticklocation(uint8_t channelx, uint8_t channely){
 }
 
 void pwm(uint8_t inputvalue){
+    int delay = 0;
+
     if(inputvalue == 3){
         TIMER_A1->CCTL[0] |= TIMER_A_CCTLN_CCIE;
         TIMER_A0->CCTL[0] |= TIMER_A_CCTLN_CCIE;

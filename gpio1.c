@@ -6,12 +6,12 @@
 intHandler interruptHandlers[7][8]; //probably will remove
 
 void gpio_config() {
-    NVIC_EnableIRQ(PORT1_IRQn);
-    //NVIC_EnableIRQ(PORT2_IRQn);
+    //NVIC_EnableIRQ(PORT1_IRQn);
+    NVIC_EnableIRQ(PORT2_IRQn);
     //NVIC_EnableIRQ(PORT3_IRQn);
     //NVIC_EnableIRQ(PORT4_IRQn);
     //NVIC_EnableIRQ(PORT5_IRQn);
-    NVIC_SetPriority(PORT1_IRQn,1); //not necessary
+    //NVIC_SetPriority(PORT1_IRQn,1); //not necessary
 }
 
 void gpio_pwmconfig(){

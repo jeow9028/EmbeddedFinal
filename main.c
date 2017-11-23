@@ -6,7 +6,7 @@
 #include "stdio.h"
 #include "timer.h"
 
-//change
+
 #define TIMER
 //#define LCD
 #define ADCJOYSTICK
@@ -33,9 +33,10 @@ void brandonjc(void){
 #endif
 #ifdef TIMER
     timerA0_config();
-    timerA1_config();
-    gpio_pwmconfig();
+    //timerA1_config();
+    //gpio_pwmconfig();
     gpio_config();
+
 #endif
 }
 
@@ -62,7 +63,7 @@ void main(void){
         value = joysticklocation(0,4);
 
 
-        pwm(value);
+        //pwm(value);
 #ifdef LCD
         char text[128];
         value = joysticklocation(0,4);
