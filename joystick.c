@@ -12,15 +12,14 @@
  *
  * ***************************************************************************/
 
-
-
-#include "adc.h"
 #include "msp.h"
 #include <math.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include <adc.h>
-#include <timer.h>
+#include "adc.h"
+#include "timer.h"
+#include "joystick.h"
+
 
 void joystick_configure(void){
     P4->SEL0 |= BIT4;
@@ -36,6 +35,7 @@ int8_t joysticklocation(uint8_t channelx, uint8_t channely){
      * Channely takes an input from main that compares values for the up and down movement
      */
     int8_t location = 0;
+
     if ((ADC_getN(channelx) < 12000) && (ADC_getN(channely) > 12000) && (ADC_getN(channelx) > 6000)){
         //This for for straight up
         location = 3;

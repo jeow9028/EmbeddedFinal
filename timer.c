@@ -18,6 +18,7 @@
 #include "msp.h"
 #include "timer.h"
 volatile uint16_t tCount; //keep track of timer interrupts
+
 //#define TIMERINTERRUPTS
 
 /*
@@ -41,6 +42,7 @@ void timerA0_config(){
     NVIC_EnableIRQ(TA0_0_IRQn);
 #endif
 }
+
 /*
  * Function: timerA1_config
  * ----------------------------
@@ -69,20 +71,23 @@ void timerA1_config(){
  *   TIMER_A0->CCR[1] uses P2.4, while CCR[2] uses P2.5. This information
  *   is found in the gpio1.c file.
  *
+ *   Using enumerations for the duty cycle readings. It makes the code cleaner.
+ *   The enumeration function is found in timer header file.
+ *
  *   !!!!!!MORE INFORMATION IS NEEDED FROM OSCILLOSCOPE READINGS!!!!!!!!
  *   Like ~213 is 50% duty cycle, and 450 is ~+90%.
  */
 void pwm(uint8_t inputvalue){
     if(inputvalue == 3){
-        TIMER_A0->CCR[2] = 450;
+        TIMER_A0->CCR[2] = ninetynine;
     }
     else if (inputvalue == 1){
-        TIMER_A0->CCR[2] = 450;
+        TIMER_A0->CCR[2] = ninetynine;
     }
     else if (inputvalue == 2){
-        TIMER_A0->CCR[2] = 213;
+        TIMER_A0->CCR[2] = fifty;
     }
     else{
-        TIMER_A0->CCR[2] = 0;
+        TIMER_A0->CCR[2] = zero;
     }
 }

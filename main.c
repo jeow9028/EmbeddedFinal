@@ -75,6 +75,8 @@ void main(void){
 #ifdef ADCJOYSTICK
         value = joysticklocation(0,4);
 #endif
+
+
 #ifdef TIMER
         pwm(value);
 #endif

@@ -1,7 +1,6 @@
 # FIXED
 
 joystick.obj: ../joystick.c
-joystick.obj: ../adc.h
 joystick.obj: C:/ti/ccsv7/ccs_base/arm/include/msp.h
 joystick.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h
 joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h
@@ -15,12 +14,14 @@ joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/math.h
 joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/linkage.h
 joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/_defs.h
 joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h
-joystick.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/adc.h
-joystick.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/timer.h
-joystick.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/gpio1.h
+joystick.obj: ../adc.h
+joystick.obj: ../timer.h
+joystick.obj: ../gpio1.h
+joystick.obj: ../joystick.h
+joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/math.h
+joystick.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h
 
 ../joystick.c: 
-../adc.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h: 
@@ -34,6 +35,9 @@ C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/math.h:
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/linkage.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/_defs.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h: 
-C:/Users/Brandon/workspace_v7/EmbeddedFinal/adc.h: 
-C:/Users/Brandon/workspace_v7/EmbeddedFinal/timer.h: 
-C:/Users/Brandon/workspace_v7/EmbeddedFinal/gpio1.h: 
+../adc.h: 
+../timer.h: 
+../gpio1.h: 
+../joystick.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/math.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h: 
