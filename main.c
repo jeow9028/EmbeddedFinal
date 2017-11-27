@@ -22,7 +22,7 @@
 #include "gpio1.h"
 
 #define TIMER
-#define LCD
+//#define LCD
 #define ADCJOYSTICK
 
 #define SCB_SCR_ENABLE_SLEEPONEXIT (0x00000002)

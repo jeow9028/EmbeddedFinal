@@ -1,7 +1,7 @@
 # FIXED
 
 gpio1.obj: ../gpio1.c
-gpio1.obj: C:/Users/Brandon/workspace_v7/EmbeddedFinal/gpio1.h
+gpio1.obj: C:/Users/Adam/Dropbox/CU\ Junior/Embedded/EmbeddedFinal/gpio1.h
 gpio1.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h
 gpio1.obj: C:/ti/ccsv7/ccs_base/arm/include/msp.h
 gpio1.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h
@@ -20,7 +20,7 @@ gpio1.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h
 gpio1.obj: ../timer.h
 
 ../gpio1.c: 
-C:/Users/Brandon/workspace_v7/EmbeddedFinal/gpio1.h: 
+C:/Users/Adam/Dropbox/CU\ Junior/Embedded/EmbeddedFinal/gpio1.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdint.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h: 
