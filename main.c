@@ -8,7 +8,7 @@
  * Compiled using CCSv7
  *
  * Note that LCD will mess with other pin-out configurations. It is *highly*
- * recommended to comment-out #define LCD.
+ * recommended to comment-out #define LCD. LCD messes with the output frequency and other pins.
  *
  * ***************************************************************************/
 
@@ -75,8 +75,6 @@ void main(void){
 #ifdef ADCJOYSTICK
         value = joysticklocation(0,4);
 #endif
-
-
 #ifdef TIMER
         pwm(value);
 #endif

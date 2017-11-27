@@ -36,7 +36,7 @@ void timerA0_config(){
                     TIMER_A_CTL_MC__UP|        // Up Mode
                     TIMER_A_CTL_IFG;           // Timer A0 Interrupt Flag
     TIMER_A0->CCTL[2] = TIMER_A_CCTLN_OUTMOD_7;// Reset/Set PWM for A0.x where 0<=x<=6
-    TIMER_A0->CCR[0] = 512-1;                  // Frequency
+    TIMER_A0->CCR[0] = 511;                  // Frequency
 #ifdef TIMERINTERRUPTS
     TIMER_A0->CCTL[0] = TIMER_A_CCTLN_CCIE;  // Enable CCTL interrupts
     NVIC_EnableIRQ(TA0_0_IRQn);
