@@ -57,10 +57,10 @@ void brandonjc(void){
 }
 
 /*
- * Function: Bluetooth w/ I2C
+ * Function: Bluetooth w/ UART
  * ----------------------------
  *   function adamarash has all the configuration function calls
- *   for bluetooth and I2C
+ *   for bluetooth and UART
  */
 void adamarash(void){
 }
